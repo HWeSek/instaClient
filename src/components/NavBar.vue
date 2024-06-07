@@ -1,7 +1,17 @@
 <script setup lang="ts">
 import Logo from "@/assets/Instagram_logo_2016.svg";
 import { useAllData } from "@/stores/data";
+import router from "@/router";
+
 const store = useAllData();
+
+function logout(){
+    if(store.token != undefined){
+        store.token = undefined;
+        router.push('/');
+    }
+}
+
 </script>
 
 <template>
@@ -15,12 +25,16 @@ const store = useAllData();
         <VaIcon name="login" size="3rem" />
         <VaSidebarItemTitle class="va-title">Log in</VaSidebarItemTitle>
     </VaSidebarItem>
+    <VaSidebarItem  to="/register" style="padding: 15px" v-if="store.token == undefined">
+        <VaIcon name="app_registration" size="3rem" />
+        <VaSidebarItemTitle class="va-title">Register</VaSidebarItemTitle>
+    </VaSidebarItem>
     <VaSidebarItem  to="/" style="padding: 15px">
         <VaIcon name="home" size="3rem" />
         <VaSidebarItemTitle class="va-title">Home</VaSidebarItemTitle>
     </VaSidebarItem>
     <div style="height: 100%; width: 100%; margin-bottom: 30px" class="row align-end" v-if="store.token != undefined">
-    <VaSidebarItem style="padding: 15px;">
+    <VaSidebarItem @click="logout" style="padding: 15px;">
         <VaIcon name="logout" size="3rem" />
         <VaSidebarItemTitle class="va-title">Logout</VaSidebarItemTitle>
     </VaSidebarItem>
@@ -39,6 +53,7 @@ const store = useAllData();
         text-align: center;
         align-items: center;
         padding: 0;
+        position: fixed
     }
 
     img {

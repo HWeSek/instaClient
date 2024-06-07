@@ -1,13 +1,19 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
 import { useAllData } from "./stores/data";
-import { onMounted } from 'vue';
+import { onMounted, inject } from 'vue';
 
 import { useColors } from 'vuestic-ui';
+
+const $cookies = inject<VueCookies>('$cookies');  
 
 const store = useAllData();
 onMounted(() => {
     store.getPosts();    
+    let cookie = $cookies.get('token');
+    if(cookie){
+      store.token = cookie
+    }                          
 })
 
 const colors = useColors()

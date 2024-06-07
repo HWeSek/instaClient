@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue';
-
+import router from '@/router';
 import apiUtils from '@/api/apiUtils'
 
 export const useAllData = defineStore('data', () => {
@@ -14,11 +14,13 @@ export const useAllData = defineStore('data', () => {
             if (Array.isArray(res)) {
                 posts.value = res;
             }
-            console.log(posts);
+            
+            
         } catch (error) {
-            console.log(error);
         }
     }
 
-    return { posts, token, getPosts }
+    
+
+    return { posts, token, getPosts}
 })
