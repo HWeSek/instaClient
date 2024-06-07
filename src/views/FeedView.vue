@@ -7,13 +7,18 @@ const store = useAllData();
 </script>
 
 <template>
-  <main>
-    <NavBar></NavBar>
-    <template v-for="(post, i) in store.posts">
-      <p>{{ post.id }}</p>
-      <img width="200" :src="'http://127.0.0.1:3000/api/getimage/'+ post.id">
+    <VaLayout>
+    <template #left><NavBar></NavBar></template>
+   
+    <template #content>
+      <h1>DDT</h1>
+      <template v-for="(post, i) in store.posts">
+        <p>{{ post.id }}</p>
+        <img width="200" :src="'http://127.0.0.1:3000/api/getimage/'+ post.id">
+      </template>
     </template>
-  </main>
+
+    </VaLayout>
 </template>
 
 <style scoped>

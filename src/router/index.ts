@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import FeedView from '@/views/FeedView.vue';
+import LoginView from '@/views/LoginView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,6 +10,12 @@ const router = createRouter({
       name: 'feed',
       component: FeedView
     },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginView
+    },
+    { path: '/:pathMatch(.*)*', name: 'NotFound', component: () => import('../views/NotFound.vue') },
     {
       path: '/about',
       name: 'about',
