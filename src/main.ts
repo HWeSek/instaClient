@@ -15,7 +15,7 @@ import VueCookies from 'vue-cookies';
 
 const app = createApp(App)
 
-app.use(VueCookies, {expires: '1d'})
+app.use(VueCookies, { expires: '1d' })
 
 app.use(createPinia())
 app.use(router)
@@ -24,7 +24,7 @@ app.use(createVuestic({
         colors: {
             presets: {
                 dark: {
-                    primary: "#cf4f4f",
+                    primary: "#d822c9",
                     secondary: "#818992",
                     success: "#61c328",
                     info: "#259df4",

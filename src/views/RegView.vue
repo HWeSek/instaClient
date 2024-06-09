@@ -60,19 +60,18 @@ async function registerCheck(){
          icon="success"
          class="mb-6"
          v-model="confirm"
-         style="position: fixed; top: 10px; left: 33% ; z-index: 2; text-align: start"
+         style="position: fixed; top: 10px; left: 33% ; z-index: 2; text-align: start; "
          closeable
-         >
-         Użytkownik zarejestrowany! Kliknij tutaj aby potwierdzić: <a :href="link">Potwierdź</a>
+         >Użytkownik zarejestrowany! Kliknij tutaj aby potwierdzić: <a :href="link">Potwierdź</a>
       </VaAlert>
     <VaLayout>
     <template #left><NavBar></NavBar></template>
    
     <template #content>
         <div class="container">
-            <h1 class="va-h1"  style="margin-left: 34vw">Zarejestruj się!</h1>
-            <div style="margin-left: 32vw">
-            <VaCard style="width: 370px; text-align: start; margin-top: 120px" color="secondary">
+            <h1 class="va-h1"  style="margin-left: 415px">Zarejestruj się!</h1>
+            <div style="margin-left: 395px">
+            <VaCard class="card" color="secondary">
                 <VaCardContent>
                     <VaForm class="flex column">
                         <VaInput v-model="name" class="mb-3" placeholder="Enter your name" type="text" label="Name" style="--va-input-font-weight: 700"></VaInput>
@@ -105,12 +104,16 @@ async function registerCheck(){
     font-weight: 700
 }
 
+.card {
+    width: 370px; text-align: start; margin-top: 120px
+}
+
 img {
     position: absolute;
     z-index: -1;
     width: 900px;
     top: 10px;
-    left: 17.7vw;
+    left: 200px;
 }
 
 </style>

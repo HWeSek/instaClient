@@ -12,15 +12,15 @@ export const useAllData = defineStore('data', () => {
         try {
             const res = await apiUtils.get("http://127.0.0.1:3000/api/photos");
             if (Array.isArray(res)) {
-                posts.value = res;
+                posts.value = res.reverse();
             }
-            
-            
+
+
         } catch (error) {
         }
     }
 
-    
 
-    return { posts, token, getPosts}
+
+    return { posts, token, getPosts }
 })

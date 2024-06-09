@@ -2,13 +2,17 @@
 import Logo from "@/assets/Instagram_logo_2016.svg";
 import { useAllData } from "@/stores/data";
 import router from "@/router";
+import { inject } from "vue";
+import type { VueCookies } from "vue-cookies";
 
 const store = useAllData();
+const $cookies = inject<VueCookies>('$cookies');  
 
 function logout(){
     if(store.token != undefined){
         store.token = undefined;
         router.push('/');
+        $cookies?.remove('token');
     }
 }
 

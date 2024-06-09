@@ -4,6 +4,7 @@ import NavBar from "@/components/NavBar.vue";
 import { useAllData } from "@/stores/data";
 import { ref, inject } from "vue";
 import apiUtils from "@/api/apiUtils"; 
+import type { VueCookies } from "vue-cookies";
 
 const store = useAllData();
 let login= ref<string>('');
@@ -22,7 +23,7 @@ async function loginCheck(){
             if(res.status == 200){
                 //@ts-ignore
                 store.token = res.data
-                $cookies.set('token', store.token, "1h")
+                $cookies!.set('token', store.token, "1h")
                 router.push('/');
             }else{
                 alert.value = true;
@@ -55,8 +56,8 @@ async function loginCheck(){
    
     <template #content>
         <div class="container">
-            <h1 class="va-h1"  style="margin-left: 40vw">Log in!</h1>
-            <div style="margin-left: 32vw">
+            <h1 class="va-h1"  style="margin-left: 500px">Log in!</h1>
+            <div style="margin-left: 395px">
             <VaCard style="width: 370px; text-align: start; margin-top: 120px" color="secondary">
                 <VaCardContent>
                     <VaForm class="flex column">
@@ -93,7 +94,7 @@ img {
     z-index: -1;
     width: 900px;
     top: 10px;
-    left: 17.7vw;
+    left: 200px;
 }
 
 </style>
