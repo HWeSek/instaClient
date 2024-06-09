@@ -27,7 +27,7 @@ const store = useAllData();
 <style scoped>
 
 .container {
-  margin-left: 300px;
+  margin-left: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;

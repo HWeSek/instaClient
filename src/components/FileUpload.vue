@@ -1,8 +1,4 @@
-<template>
-      <input v-on:change="handleFileUpload($event)"  type="file" accept="image/*">
-      <img v-if="data" :src="data">
-      <VaButton v-if="data" @click="uploadFile">Wyślij!</VaButton>
-</template>
+
 
 <script setup lang="ts">
 import { useAllData } from "@/stores/data";
@@ -59,6 +55,12 @@ const handleFileUpload = async ($event: Event) => {
 }
 
 </script>
+
+<template>
+      <input v-on:change="handleFileUpload($event)"  type="file" accept="image/*">
+      <img v-if="data" :src="data">
+      <VaButton v-if="data" @click="uploadFile">Wyślij!</VaButton>
+</template>
 
 <style scoped>
 input::file-selector-button {

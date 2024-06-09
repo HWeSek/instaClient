@@ -47,4 +47,32 @@ export default {
             }
         })
     },
+    patch: async (url: string, data: any, contentType: string, token: string | undefined = undefined) => {
+        return new Promise(async (resolve, reject) => {
+            let headers;
+            if (token == undefined) {
+                headers = {
+                    "Content-Type": contentType
+                }
+            } else {
+                headers = {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": contentType
+                }
+            }
+            try {
+                console.log(url, data, headers);
+
+                const response = await axios.patch(url, data,
+                    {
+                        headers: headers
+                    })
+
+                resolve(response)
+            } catch (error) {
+                //@ts-ignore
+                resolve(error.response)
+            }
+        })
+    },
 }

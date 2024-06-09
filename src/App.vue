@@ -4,6 +4,7 @@ import { useAllData } from "./stores/data";
 import { onMounted, inject } from 'vue';
 
 import { useColors } from 'vuestic-ui';
+import type { VueCookies } from 'vue-cookies';
 
 const $cookies = inject<VueCookies>('$cookies');  
 
@@ -22,7 +23,9 @@ colors.applyPreset('dark');
 </script>
 
 <template>
-<RouterView />
+<Suspense>
+  <RouterView />
+</Suspense>
 </template>
 
 <style scoped>

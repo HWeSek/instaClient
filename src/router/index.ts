@@ -3,6 +3,7 @@ import FeedView from '@/views/FeedView.vue';
 import LoginView from '@/views/LoginView.vue';
 import RegView from '@/views/RegView.vue';
 import UploadView from '@/views/UploadView.vue';
+import ProfileView from '@/views/ProfileView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/upload',
       name: 'upload',
       component: UploadView
+    },
+    {
+      path: '/profile',
+      name: 'profiie',
+      component: ProfileView
     },
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: () => import('../views/NotFound.vue') },
     {
