@@ -4,6 +4,8 @@ import LoginView from '@/views/LoginView.vue';
 import RegView from '@/views/RegView.vue';
 import UploadView from '@/views/UploadView.vue';
 import ProfileView from '@/views/ProfileView.vue';
+import UserView from '@/views/UserView.vue';
+import PhotoView from '@/views/PhotoView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +34,16 @@ const router = createRouter({
       path: '/profile',
       name: 'profiie',
       component: ProfileView
+    },
+    {
+      path: '/user/:mail',
+      name: 'user',
+      component: UserView
+    },
+    {
+      path: '/photo/:id',
+      name: 'photo',
+      component: PhotoView
     },
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: () => import('../views/NotFound.vue') },
     {

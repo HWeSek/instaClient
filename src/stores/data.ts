@@ -21,8 +21,10 @@ export const useAllData = defineStore('data', () => {
     }
 
     function filterPostsByUser(email: string) {
+
         return posts.value.filter((post) => post.album == email)
     }
+
 
     return { posts, token, getPosts, filterPostsByUser }
 })
